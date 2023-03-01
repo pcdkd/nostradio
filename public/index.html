@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta name="generator" content="Hugo 0.83.1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="this is nostradio 24/7" />
+    <meta name="keywords" content="radio" />
+    <meta name="author" content="pcdkd" />
+    <meta name="theme-color" content="#212529"/>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" sizes="196x196" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <title>nostradio 24/7</title>
+
+    
+    <link href="./style.css" rel="stylesheet" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="nostradio 24/7" />
+    <meta property="og:url" content="https://nostradio.fyi" />
+    <meta property="og:description" content="24/7 nostr radio" />
+    <meta property="og:image" content="/nostradio-icon.png" />
+
+
+  <script>
+    window.MashSettings = {
+      id: "92d2f3b0-69d2-451a-83e7-7376f231b4a9"
+    };
+    var loader = function () {
+      window.Mash.init();
+    };
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.defer = true;
+    script.onload = loader;
+    script.src = "https://wallet.getmash.com/sdk/sdk.js";
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(script);
+  </script>
+  
+
+    <script>
+      if (window.navigator.userAgent.toLocaleLowerCase().indexOf('trident') !== -1) {
+        window.alert('IE is not supported on this page.')
+      }
+
+    </script>
+  </head>
+
+  <body class="glitch hacktheplanet">
+    <div class="wrapper">
+      <div class="title-wrapper">
+        <h1><span class="bigger" id="trackInfo">
+        </span> <br> <span class="box-border">Now playing ↑</span> <span class="line-around clock"></span>
+        
+        <div class="jp-controls" style="padding-top:20px;">
+          <a href="javascript:;" style="display:contents;text-decoration: none;" class="jp-play" title="Play">> Start</a>
+          <a href="javascript:;" style="display:none;text-decoration: none;" class="jp-pause" title="Pause">Stop</a>
+         </div>
+        
+        
+        <span class="big">Nostradio</span>
+        <mash-boost-button handle="92d2f3b0-69d2-451a-83e7-7376f231b4a9" icon="lightning" layout-mode="inline" display-mode="icon-only" float-location="bottom-center" color-variant="dark" size="md" mobile-size="md"></mash-boost-button>
+        
+</span>
+      </h1>
+      </div>
+      <div id="rj-player">
+        <div class="player-v3 player-medium">
+         
+         <div class="info">
+          <div class="rjp-trackinfo-container">
+           <p id="trackInfo" class="rjp-info"></p>
+          </div>
+          <div class="rjp-player-container">
+           <div id="rjp-radiojar-player"></div>
+           <div id="rj-player-controls" class="rj-player-controls">
+            <div class="jp-gui jp-interface">
+             <div class="jp-controls">
+              
+              
+              </div>
+             </div>
+            </div>
+           </div>
+           
+          </div>
+         </div>
+        </div>
+       </div>
+    </div>
+    <script type="text/javascript" src="//www.radiojar.com/wrappers/api-plugins/v1/radiojar-min.js"></script>
+<script>
+ rjq('#rjp-radiojar-player').radiojar('player', {
+  "streamName": "ny2g5xuw1duvv",
+  "enableUpdates": true,
+  "defaultImage": "//www.radiojar.com/img/sample_images/Radio_Stations_Avatar_BLUE.png",
+  "autoplay":false
+ });
+ rjq('#rjp-radiojar-player').off('rj-track-load-event');
+ rjq('#rjp-radiojar-player').on('rj-track-load-event', function(event, data) {
+   updateInfo(data);
+   if (data.title != "" || data.artist != "") {
+     rjq('.rjp-trackinfo-container').show();
+     rjq('#trackInfo').html(data.artist + ' - "' + data.title + '"')
+   } else {
+     rjq('.rjp-trackinfo-container').hide();
+   }
+ });
+
+ function updateInfo(data) {
+   if (data.thumb) {
+     rjq('#rj-cover').html('<a href="#"><img src="' + data.thumb + '" alt="" title="" /></a>')
+   } else {
+     rjq('#rj-cover').html('')
+   }
+ }
+</script>
+<script>
+  function clock() {
+var time = new Date(),
+    
+    
+    hours = time.getHours(),
+    
+    
+    minutes = time.getMinutes(),
+    
+    
+    seconds = time.getSeconds();
+
+document.querySelectorAll('.clock')[0].innerHTML = harold(hours) + ":" + harold(minutes) + ":" + harold(seconds);
+  
+  function harold(standIn) {
+    if (standIn < 10) {
+      standIn = '0' + standIn
+    }
+    return standIn;
+  }
+}
+setInterval(clock, 1000);
+</script>
+</body>
+<footer>
+<p style="text-align:center;font-weight:lighter;font-size:14px;">made by pcdkd (pcdkd@pcdkd.fyi)<br> <small style="font-size:8px">npub1w65mgf77dfnn9c2vylw8k0rjjvvc8cw60ttw44u2cf0608eyxtlsyt9ec3</small></p>
+</footer>
+</html>

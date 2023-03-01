@@ -1,0 +1,7 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "nostradio 24/7"
+
+[params]
+  description = "nostradio 24/7"
+  author = "pcdkd"
